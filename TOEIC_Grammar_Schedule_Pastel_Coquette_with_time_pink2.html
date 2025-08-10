@@ -1,0 +1,176 @@
+
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lịch học Ngữ pháp 11/8 - 17/8</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap');
+  body{
+    font-family: 'Playfair Display', serif;
+    background: url('https://i.pinimg.com/736x/81/86/08/81860892fff58cb559552498b207ddf0.jpg') repeat;
+    background-size: 300px;
+    color:#0f172a;
+    margin:0;
+  }
+  header{
+    position:relative;
+    padding:20px;
+    background: rgba(255,255,255,0.9);
+    border-bottom:2px solid #f8fafc;
+    text-align:center;
+  }
+  header h1{
+    margin:0;
+    font-size:32px;
+    font-family: 'Great Vibes', cursive;
+    color:#b56576;
+  }
+  header p{margin:4px 0 0;font-size:16px;color:#475569;}
+  .top-section{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:10px;
+    background:rgba(255,247,237,0.85);
+    margin-bottom:15px;
+    border-bottom:1px solid #e5e7eb;
+  }
+  .calendar{
+    max-width:320px;
+    background:#fff;
+    border-radius:12px;
+    padding:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom:15px;
+  }
+  .calendar h2{
+    text-align:center;
+    font-size:20px;
+    margin:0;
+    color:#7c2d12;
+    font-family: 'Great Vibes', cursive;
+  }
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px;}
+  .cal-day{padding:8px;text-align:center;border-radius:8px;background:#f8fafc;color:#475569;font-size:14px;}
+  .cal-day.done{background:#d1fae5;color:#be185d;font-weight:600;}
+  canvas{max-width:300px;margin:0 auto 10px auto;display:block;}
+  .container{padding:16px;max-width:900px;margin:0 auto;}
+  .day{background:rgba(255,255,255,0.9); border:1px solid #f1f5f9; border-radius:14px; padding:16px; margin-bottom:16px; box-shadow:0 4px 8px rgba(88,28,135,0.08);}
+  .day-title{font-weight:bold;font-size:20px;color:#be185d;font-family: 'Great Vibes', cursive;}
+  .meta{font-size:14px;color:#475569;}
+  .tasks{margin-top:8px;display:grid;gap:8px;}
+  .task{background:#faf5ff; border-radius:10px; padding:10px; display:flex; align-items:flex-start; gap:10px; border:1px solid #f3e8ff; font-family: 'Inter', sans-serif; font-size:15px; line-height:1.625;}
+  .time{font-weight:600;color:#f9a8d4;margin-right:6px;}
+  .task input{accent-color:#b56576; transform: scale(1.2);}
+  .progress-wrap{margin-top:8px;display:flex;gap:8px;align-items:center;}
+  .progress{flex:1;height:10px;background:#f1f5f9;border-radius:999px;overflow:hidden;}
+  .bar{height:100%;background:linear-gradient(90deg,#fbcfe8,#f9a8d4);width:0%;}
+  footer{padding:16px;text-align:center;font-size:14px;color:#475569;background:rgba(255,255,255,0.8);}
+</style>
+</head>
+<body>
+<header>
+  <h1>📅 Lịch học Ngữ pháp — 11/8 → 17/8</h1>
+  <p>Pastel Coquette Style • Tick để hoàn thành, xem tiến độ & lịch</p>
+</header>
+<div class="top-section">
+  <div class="calendar">
+    <h2>Calendar</h2>
+    <div class="cal-grid" id="calendar"></div>
+  </div>
+  <canvas id="chart"></canvas>
+</div>
+<div class="container" id="main"><section class="day"><div class="day-title">11/8 – Nền tảng</div><div class="meta">7 mục</div><div class="tasks" id="tasks-0"><div class="task"><input type="checkbox" data-id="0-0"><div><span class="time">07:30 – 07:45</span> Ôn khởi động, lướt lại ghi chú cũ (Part 1 đã học)</div></div><div class="task"><input type="checkbox" data-id="0-1"><div><span class="time">07:45 – 09:15</span> Xem Kiến thức cơ bản 1 (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="0-2"><div><span class="time">09:15 – 09:30</span> Nghỉ 15 phút</div></div><div class="task"><input type="checkbox" data-id="0-3"><div><span class="time">09:30 – 11:00</span> Xem Kiến thức cơ bản 2 (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="0-4"><div><span class="time">11:00 – 11:30</span> Tổng hợp lại sơ đồ tư duy về từ loại, mệnh đề, câu</div></div><div class="task"><input type="checkbox" data-id="0-5"><div><span class="time">14:30 – 15:30</span> Ôn lại toàn bộ ví dụ, tự đặt câu</div></div><div class="task"><input type="checkbox" data-id="0-6"><div><span class="time">20:00 – 20:30</span> Lướt flashcard + làm 5 câu tự kiểm tra</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-0"></div></div></div></section><section class="day"><div class="day-title">12/8 – Danh từ</div><div class="meta">7 mục</div><div class="tasks" id="tasks-1"><div class="task"><input type="checkbox" data-id="1-0"><div><span class="time">07:30 – 07:45</span> Ôn lại bài hôm qua</div></div><div class="task"><input type="checkbox" data-id="1-1"><div><span class="time">07:45 – 08:45</span> Xem Danh từ 1 (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="1-2"><div><span class="time">08:45 – 09:45</span> Xem Danh từ 2 (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="1-3"><div><span class="time">09:45 – 10:00</span> Nghỉ</div></div><div class="task"><input type="checkbox" data-id="1-4"><div><span class="time">10:00 – 11:30</span> Làm 10 parts bài tập danh từ</div></div><div class="task"><input type="checkbox" data-id="1-5"><div><span class="time">14:30 – 15:30</span> Chữa bài tập + ghi chú lỗi</div></div><div class="task"><input type="checkbox" data-id="1-6"><div><span class="time">20:00 – 20:30</span> Flashcard danh từ, cụm danh từ</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-1"></div></div></div></section><section class="day"><div class="day-title">13/8 – Đại từ, Tính từ</div><div class="meta">8 mục</div><div class="tasks" id="tasks-2"><div class="task"><input type="checkbox" data-id="2-0"><div><span class="time">07:30 – 07:45</span> Ôn lại danh từ</div></div><div class="task"><input type="checkbox" data-id="2-1"><div><span class="time">07:45 – 09:00</span> Xem Đại từ (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="2-2"><div><span class="time">09:00 – 10:00</span> Làm 8 parts bài tập đại từ</div></div><div class="task"><input type="checkbox" data-id="2-3"><div><span class="time">10:00 – 10:15</span> Nghỉ</div></div><div class="task"><input type="checkbox" data-id="2-4"><div><span class="time">10:15 – 11:15</span> Xem Tính từ (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="2-5"><div><span class="time">11:15 – 11:45</span> Làm 2 parts bài tập tính từ</div></div><div class="task"><input type="checkbox" data-id="2-6"><div><span class="time">14:30 – 15:30</span> Chữa bài tập, luyện đặt câu</div></div><div class="task"><input type="checkbox" data-id="2-7"><div><span class="time">20:00 – 20:30</span> Flashcard đại từ & tính từ</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-2"></div></div></div></section><section class="day"><div class="day-title">14/8 – Thì (Ngày nặng)</div><div class="meta">7 mục</div><div class="tasks" id="tasks-3"><div class="task"><input type="checkbox" data-id="3-0"><div><span class="time">07:30 – 07:45</span> Ôn lại đại từ, tính từ</div></div><div class="task"><input type="checkbox" data-id="3-1"><div><span class="time">07:45 – 09:15</span> Xem phần lý thuyết 6 thì đầu</div></div><div class="task"><input type="checkbox" data-id="3-2"><div><span class="time">09:15 – 10:30</span> Làm bài tập cho 6 thì này (~18 parts)</div></div><div class="task"><input type="checkbox" data-id="3-3"><div><span class="time">10:30 – 10:45</span> Nghỉ</div></div><div class="task"><input type="checkbox" data-id="3-4"><div><span class="time">10:45 – 12:00</span> Xem lý thuyết 6 thì còn lại</div></div><div class="task"><input type="checkbox" data-id="3-5"><div><span class="time">14:30 – 16:00</span> Làm nốt bài tập còn lại (~19 parts)</div></div><div class="task"><input type="checkbox" data-id="3-6"><div><span class="time">20:00 – 20:30</span> Vẽ bảng tổng hợp 12 thì</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-3"></div></div></div></section><section class="day"><div class="day-title">15/8 – Thể & Các dạng động từ</div><div class="meta">9 mục</div><div class="tasks" id="tasks-4"><div class="task"><input type="checkbox" data-id="4-0"><div><span class="time">07:30 – 07:45</span> Ôn bảng 12 thì</div></div><div class="task"><input type="checkbox" data-id="4-1"><div><span class="time">07:45 – 08:30</span> Xem Thể (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="4-2"><div><span class="time">08:30 – 09:00</span> Làm 3 parts bài tập thể</div></div><div class="task"><input type="checkbox" data-id="4-3"><div><span class="time">09:00 – 09:45</span> Xem Động từ nguyên mẫu (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="4-4"><div><span class="time">09:45 – 10:00</span> Nghỉ</div></div><div class="task"><input type="checkbox" data-id="4-5"><div><span class="time">10:00 – 10:45</span> Xem Động từ nguyên mẫu có to (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="4-6"><div><span class="time">10:45 – 11:30</span> Xem Danh động từ (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="4-7"><div><span class="time">14:30 – 15:30</span> Làm bài tập 3 chuyên đề này (~6–7 parts)</div></div><div class="task"><input type="checkbox" data-id="4-8"><div><span class="time">20:00 – 20:30</span> Flashcard động từ</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-4"></div></div></div></section><section class="day"><div class="day-title">16/8 – Phân từ, Trạng từ, Giới từ</div><div class="meta">8 mục</div><div class="tasks" id="tasks-5"><div class="task"><input type="checkbox" data-id="5-0"><div><span class="time">07:30 – 07:45</span> Ôn lại động từ</div></div><div class="task"><input type="checkbox" data-id="5-1"><div><span class="time">07:45 – 08:15</span> Xem Phân từ & cấu trúc từ + bài tập</div></div><div class="task"><input type="checkbox" data-id="5-2"><div><span class="time">08:15 – 09:15</span> Xem Trạng từ + bài tập (~4 parts)</div></div><div class="task"><input type="checkbox" data-id="5-3"><div><span class="time">09:15 – 09:30</span> Nghỉ</div></div><div class="task"><input type="checkbox" data-id="5-4"><div><span class="time">09:30 – 10:45</span> Xem Giới từ (video + ghi chú)</div></div><div class="task"><input type="checkbox" data-id="5-5"><div><span class="time">10:45 – 11:30</span> Làm 6 parts giới từ</div></div><div class="task"><input type="checkbox" data-id="5-6"><div><span class="time">14:30 – 15:30</span> Chữa bài tập & ôn nhóm giới từ theo nghĩa</div></div><div class="task"><input type="checkbox" data-id="5-7"><div><span class="time">20:00 – 20:30</span> Flashcard phân từ, trạng từ, giới từ</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-5"></div></div></div></section><section class="day"><div class="day-title">17/8 – Tổng kết</div><div class="meta">9 mục</div><div class="tasks" id="tasks-6"><div class="task"><input type="checkbox" data-id="6-0"><div><span class="time">07:30 – 07:45</span> Ôn giới từ</div></div><div class="task"><input type="checkbox" data-id="6-1"><div><span class="time">07:45 – 08:15</span> Xem Liên từ + bài tập (1 part)</div></div><div class="task"><input type="checkbox" data-id="6-2"><div><span class="time">08:15 – 09:00</span> Xem Mệnh đề quan hệ + bài tập (1 part)</div></div><div class="task"><input type="checkbox" data-id="6-3"><div><span class="time">09:00 – 09:15</span> Nghỉ</div></div><div class="task"><input type="checkbox" data-id="6-4"><div><span class="time">09:15 – 09:45</span> Xem Câu điều kiện + bài tập (5 parts)</div></div><div class="task"><input type="checkbox" data-id="6-5"><div><span class="time">09:45 – 10:15</span> Làm bài Cấu trúc phân từ (luyện tập)</div></div><div class="task"><input type="checkbox" data-id="6-6"><div><span class="time">10:15 – 11:00</span> Xem Cấu trúc so sánh + bài tập (4 parts)</div></div><div class="task"><input type="checkbox" data-id="6-7"><div><span class="time">14:30 – 15:30</span> Tổng ôn toàn bộ, làm mini review 30 câu trộn</div></div><div class="task"><input type="checkbox" data-id="6-8"><div><span class="time">20:00 – 20:30</span> Flashcard tổng hợp</div></div></div><div class="progress-wrap"><div class="progress"><div class="bar" id="bar-6"></div></div></div></section></div>
+<footer>
+  Hoàn thành: <span id="summary">0/0</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const totalTasks = document.querySelectorAll('.task input').length;
+function keyFor(id){return 'study-'+id;}
+function update(){
+  let done = 0;
+  document.querySelectorAll('.day').forEach((daySec, di) => {
+    const inputs = daySec.querySelectorAll('input[type="checkbox"]');
+    const doneCount = Array.from(inputs).filter(cb=>cb.checked).length;
+    const pct = (doneCount / inputs.length) * 100;
+    document.getElementById(`bar-${di}`).style.width = pct+'%';
+    if(doneCount === inputs.length) localStorage.setItem('daydone-'+di,'1'); else localStorage.removeItem('daydone-'+di);
+    done += doneCount;
+  });
+  document.getElementById('summary').textContent = `${done}/${totalTasks}`;
+  renderCalendar();
+  renderChart(done,totalTasks);
+}
+document.addEventListener('change',e=>{
+  if(e.target.matches('input[type="checkbox"]')){
+    localStorage.setItem(keyFor(e.target.dataset.id), e.target.checked?'1':'0');
+    update();
+  }
+});
+// restore
+document.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+  const val = localStorage.getItem(keyFor(cb.dataset.id));
+  if(val==='1') cb.checked=true;
+});
+update();
+
+function renderCalendar(){
+  const cal = document.getElementById('calendar');
+  cal.innerHTML='';
+  
+  const dayCell_0 = document.createElement('div');
+  dayCell_0.className='cal-day';
+  dayCell_0.textContent="11/8";
+  if(localStorage.getItem('daydone-0')==='1') dayCell_0.classList.add('done');
+  cal.appendChild(dayCell_0);
+  const dayCell_1 = document.createElement('div');
+  dayCell_1.className='cal-day';
+  dayCell_1.textContent="12/8";
+  if(localStorage.getItem('daydone-1')==='1') dayCell_1.classList.add('done');
+  cal.appendChild(dayCell_1);
+  const dayCell_2 = document.createElement('div');
+  dayCell_2.className='cal-day';
+  dayCell_2.textContent="13/8";
+  if(localStorage.getItem('daydone-2')==='1') dayCell_2.classList.add('done');
+  cal.appendChild(dayCell_2);
+  const dayCell_3 = document.createElement('div');
+  dayCell_3.className='cal-day';
+  dayCell_3.textContent="14/8";
+  if(localStorage.getItem('daydone-3')==='1') dayCell_3.classList.add('done');
+  cal.appendChild(dayCell_3);
+  const dayCell_4 = document.createElement('div');
+  dayCell_4.className='cal-day';
+  dayCell_4.textContent="15/8";
+  if(localStorage.getItem('daydone-4')==='1') dayCell_4.classList.add('done');
+  cal.appendChild(dayCell_4);
+  const dayCell_5 = document.createElement('div');
+  dayCell_5.className='cal-day';
+  dayCell_5.textContent="16/8";
+  if(localStorage.getItem('daydone-5')==='1') dayCell_5.classList.add('done');
+  cal.appendChild(dayCell_5);
+  const dayCell_6 = document.createElement('div');
+  dayCell_6.className='cal-day';
+  dayCell_6.textContent="17/8";
+  if(localStorage.getItem('daydone-6')==='1') dayCell_6.classList.add('done');
+  cal.appendChild(dayCell_6);
+}
+
+let chart;
+function renderChart(done,total){
+  const ctx=document.getElementById('chart').getContext('2d');
+  if(chart) chart.destroy();
+  chart = new Chart(ctx,{type:'doughnut',
+    data:{
+      labels:['Hoàn thành','Còn lại'],
+      datasets:[{data:[done,total-done],backgroundColor:['#fbcfe8','#fde68a']}]
+    },
+    options:{responsive:true,plugins:{legend:{position:'bottom'}}}
+  });
+}
+</script>
+</body>
+</html>
